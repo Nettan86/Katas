@@ -13,10 +13,10 @@ timespan för hur långt mötet varar.
 
 I CaseWorkerVisualSchedule.RefreshDisplayedMeetings() så finns det
 en for-loop som går igenom alla möten och representerar dem
-i text.
+i text. Vilken text som kommer per möte bestäms i Meeting.ToString()
 
 2. Använd formatet `"H:mm"` för att lägga till från
-    _när_ till _när_ ett möte ska ske. Använd addition för att lista ut när mötet slutar.
+    _när_ till _när_ ett möte ska ske i Meeting.ToString(). Använd addition för att lista ut när mötet slutar.
 > ett möte klockan 8:00 som varar 30 min ska alltså se ut som `6/9/21 8:00 - 8:30`
 
 ### Felhanteringen
