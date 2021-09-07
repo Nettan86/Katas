@@ -1,17 +1,18 @@
 ﻿using System;
+using System.IO;
 
 namespace Scheduler.Models
 {
     public class Meeting
     {
         public DateTime Start;
-        public TimeSpan Duration;
+        public TimeSpan Duration; 
         public Applicant Applicant;
 
         public Meeting(DateTime start)
         {
             Start = start;
-            Duration = TimeSpan.FromMinutes(30);
+            Duration = new TimeSpan(0, 0, 30, 0);
             Applicant = null;
         }
         public Meeting(DateTime start, TimeSpan duration)
@@ -33,8 +34,14 @@ namespace Scheduler.Models
         {
             string date = Start.ToString("d'/'M'/'yy");
 
-            string info = date;
+            string meetingStart = Start.ToString("H:mm");
 
+            DateTime end = Start + Duration;
+            string meetingEnd = end.ToString("H:mm");
+
+            string info = date + " " + meetingStart + "-" + meetingEnd;
+
+            
             if (Applicant != null)
                 info += " with: " + Applicant.Name;
 

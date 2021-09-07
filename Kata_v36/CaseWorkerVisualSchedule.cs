@@ -32,15 +32,30 @@ namespace Scheduler
 
         private void Button_ChangeDate_Click(object sender, EventArgs e)
         {
-            int index = listBox_Meetings.SelectedIndex; 
-            _caseWorker.ChangeMeeting(index, dateTimePicker.Value);
-            RefreshDisplayedMeetings();
+            try
+            {
+                int index = listBox_Meetings.SelectedIndex;
+                _caseWorker.ChangeMeeting(index, dateTimePicker.Value);
+                RefreshDisplayedMeetings();
+            }
+            catch (MeetingOverlapException exception)
+            {
+                MessageBox.Show(exception.Message, "Overlap", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+            
         }
 
         private void Button_Add_Click(object sender, EventArgs e)
         {
-            _caseWorker.NewDateAdded(dateTimePicker.Value);
-            RefreshDisplayedMeetings();
+            try
+            {
+                _caseWorker.NewDateAdded(dateTimePicker.Value);
+                RefreshDisplayedMeetings();
+            }
+            catch (MeetingOverlapException exception)
+            {
+                MessageBox.Show(exception.Message, "Overlap", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
         }
 
         public void RefreshDisplayedMeetings()
