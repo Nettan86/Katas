@@ -93,3 +93,18 @@ via formen på `CaseWorkerVisualSchedule` konstruktorn!
 
 Det finns både namnlistor och möteslistor nu, så det hade varit lämpligt att hålla
 dem sorterade.
+
+8. Första steget är att skapa en metod som kan ta in och jämföra två `Applicant`:s
+    genom att titta på deras namn.
+
+9. Ta sedan och sortera `UnassignedApplicants` listan när den skapas och 
+    när den töms, genom att kalla på `.Sort()` och skicka med metoden.
+
+10. Gör nu en liknande metod, fast för att sortera `Meeting` objekt istället.
+    De ska jämföras utifrån tiden möterna startar.
+
+11. Hitta alla ställen där `Meetings` listan skapas/förändras, och se till att
+    den efteråt sorteras med hjälp av metoden från punkt __10.__
+
+Nu kommer mötena att hamna i kronologisk ordning även om ett möte senareläggs
+eller ett tidigare möte läggs till! Bra jobbat!
