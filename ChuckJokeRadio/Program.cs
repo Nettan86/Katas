@@ -20,10 +20,14 @@ namespace ChuckJokeRadio
                 int end = json.IndexOf("\"}", start);
 
                 string joke = json.Substring(start, end - start);
+
+                
+                DateTime date = DateTime.Now;
+                string dateString = date.ToString("F");
+                
                 
                 Console.WriteLine(joke);
-
-                Console.WriteLine();
+                Console.WriteLine(dateString);
                 Console.Write("Press enter for another joke");
                 Console.ReadLine();
 

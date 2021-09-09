@@ -16,7 +16,7 @@ namespace Scheduler
     {
         private readonly CaseWorker _caseWorker;
 
-        public CaseWorkerVisualSchedule(CaseWorker caseWorker)
+        public CaseWorkerVisualSchedule(CaseWorker caseWorker, Action meetingAddedHandler)
         {
             _caseWorker = caseWorker;
             InitializeComponent();
